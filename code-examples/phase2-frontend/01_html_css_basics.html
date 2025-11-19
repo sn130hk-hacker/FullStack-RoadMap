@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Basics - Learning Guide</title>
+    <style>
+        /* ============================================
+           CSS BASICS - LEARN BY EXAMPLE
+           ============================================ */
+        
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Root variables (CSS Custom Properties) */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --danger-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --spacing: 1rem;
+            --border-radius: 8px;
+        }
+        
+        /* Body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 3px solid var(--primary-color);
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+        
+        /* Section styling */
+        section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Flexbox example */
+        .flex-container {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .flex-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        /* Grid example */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .grid-item {
+            padding: 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* Button styles */
+        .button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .button-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .button-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .button-success {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .button-success:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+        }
+        
+        .button-danger {
+            background: var(--danger-color);
+            color: white;
+        }
+        
+        .button-danger:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        /* Form styles */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        /* Card component */
+        .card {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-header {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .card-body {
+            color: #555;
+        }
+        
+        /* Animation example */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .flex-container {
+                flex-direction: column;
+            }
+        }
+        
+        /* Utility classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-1 { margin-top: 1rem; }
+        .mb-1 { margin-bottom: 1rem; }
+        .p-1 { padding: 1rem; }
+        
+        .text-primary { color: var(--primary-color); }
+        .text-success { color: var(--secondary-color); }
+        .text-danger { color: var(--danger-color); }
+        
+        /* Code block styling */
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: var(--danger-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container animate-fade-in">
+        <header>
+            <h1>HTML & CSS Learning Guide</h1>
+            <p class="subtitle">Learn by Example - Interactive Components</p>
+        </header>
+
+        <!-- Section 1: Flexbox -->
+        <section>
+            <h2>1. Flexbox Layout</h2>
+            <p>Flexbox is great for one-dimensional layouts (row or column)</p>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>Flex Item 1</h3>
+                    <p>Auto-sized</p>
+                </div>
+                <div class="flex-item">
+                    <h3>Flex Item 2</h3>
+                    <p>Auto-sized</p>
+                </div>
+                <div class="flex-item">
+                    <h3>Flex Item 3</h3>
+                    <p>Auto-sized</p>
+                </div>
+            </div>
+            <p><code>display: flex; gap: 1rem; flex-wrap: wrap;</code></p>
+        </section>
+
+        <!-- Section 2: Grid Layout -->
+        <section>
+            <h2>2. Grid Layout</h2>
+            <p>Grid is perfect for two-dimensional layouts</p>
+            <div class="grid-container">
+                <div class="grid-item">1</div>
+                <div class="grid-item">2</div>
+                <div class="grid-item">3</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">5</div>
+                <div class="grid-item">6</div>
+            </div>
+            <p><code>display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));</code></p>
+        </section>
+
+        <!-- Section 3: Buttons -->
+        <section>
+            <h2>3. Button Styles</h2>
+            <p>Buttons with hover effects and transitions</p>
+            <div class="text-center">
+                <button class="button button-primary">Primary Button</button>
+                <button class="button button-success">Success Button</button>
+                <button class="button button-danger">Danger Button</button>
+            </div>
+            <p class="mt-1"><code>transition: all 0.3s ease; transform: translateY(-2px);</code></p>
+        </section>
+
+        <!-- Section 4: Form -->
+        <section>
+            <h2>4. Form Elements</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <select id="country">
+                        <option value="">Select a country</option>
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="ca">Canada</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" rows="4" placeholder="Enter your message"></textarea>
+                </div>
+                
+                <button type="submit" class="button button-success">Submit Form</button>
+            </form>
+        </section>
+
+        <!-- Section 5: Cards -->
+        <section>
+            <h2>5. Card Components</h2>
+            <p>Cards with hover effects (hover over them!)</p>
+            
+            <div class="card">
+                <div class="card-header">Card Title 1</div>
+                <div class="card-body">
+                    This is a card component with shadow and hover effect.
+                    Try hovering over it to see the animation!
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Card Title 2</div>
+                <div class="card-body">
+                    Cards are great for organizing content into distinct sections.
+                    They're commonly used in modern web design.
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Card Title 3</div>
+                <div class="card-body">
+                    You can add any content inside cards: images, forms, buttons, etc.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Key Concepts -->
+        <section>
+            <h2>6. Key CSS Concepts Used</h2>
+            
+            <h3>CSS Variables (Custom Properties)</h3>
+            <p>Define reusable values: <code>:root { --primary-color: #3498db; }</code></p>
+            
+            <h3>Flexbox</h3>
+            <p>One-dimensional layout: <code>display: flex;</code></p>
+            
+            <h3>Grid</h3>
+            <p>Two-dimensional layout: <code>display: grid;</code></p>
+            
+            <h3>Transitions</h3>
+            <p>Smooth animations: <code>transition: all 0.3s ease;</code></p>
+            
+            <h3>Transforms</h3>
+            <p>Move elements: <code>transform: translateY(-2px);</code></p>
+            
+            <h3>Media Queries</h3>
+            <p>Responsive design: <code>@media (max-width: 768px) { ... }</code></p>
+            
+            <h3>Box Shadow</h3>
+            <p>Add depth: <code>box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);</code></p>
+        </section>
+
+        <!-- Section 7: Practice Tips -->
+        <section>
+            <h2>7. Practice Tips</h2>
+            <ul style="line-height: 2;">
+                <li>✅ Use browser DevTools (F12) to inspect and modify CSS in real-time</li>
+                <li>✅ Start with mobile-first design approach</li>
+                <li>✅ Use CSS variables for consistent theming</li>
+                <li>✅ Practice Flexbox with <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a></li>
+                <li>✅ Practice Grid with <a href="https://cssgridgarden.com/" target="_blank">Grid Garden</a></li>
+                <li>✅ Always include transitions for interactive elements</li>
+                <li>✅ Test responsive design at different screen sizes</li>
+            </ul>
+        </section>
+
+        <footer style="text-align: center; padding: 2rem; color: #7f8c8d;">
+            <p>🎨 Keep practicing and building! Check the code source to learn more.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple form validation example
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted! (This is just a demo)');
+        });
+    </script>
+</body>
+</html>
+
